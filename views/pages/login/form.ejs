@@ -7,14 +7,14 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 
-<body>
+<!-- <body>
 
   <div class="container">
     <div class="columns is-centered mt-6">
       <div class="column is-half">
 
         <!-- Tela de Login -->
-        <div id="login-form">
+        <!-- <div id="login-form">
           <h1 class="title has-text-centered">Login</h1>
           <form>
             <div class="field">
@@ -42,7 +42,45 @@
 
       </div>
     </div>
-  </div>
+  </div> -->
+
+  <body>
+
+    <div class="container">
+      <div class="columns is-centered mt-6">
+        <div class="column is-half">
+  
+          <!-- Tela de Login -->
+          <div id="login-form">
+            <h1 class="title has-text-centered">Login</h1>
+            <form onsubmit="return validarLogin()">
+              <div class="field">
+                <label class="label">E-mail</label>
+                <div class="control">
+                  <input class="input" type="email" placeholder="Digite seu e-mail" id="login-email" required>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Senha</label>
+                <div class="control">
+                  <input class="input" type="password" placeholder="Digite sua senha" id="login-password" required>
+                </div>
+              </div>
+              <div class="field is-grouped">
+                <div class="control">
+                  <button class="button is-primary" type="submit">Entrar</button>
+                </div>
+                <div class="control">
+                  <a href="/cadastro" class="button is-link">Cadastrar-se</a>
+                </div>
+              </div>
+            </form>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  
 
   <!-- Script da tela de login -->
   <script src="/scripts/login.js"></script>
