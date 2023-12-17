@@ -2,6 +2,47 @@
 
 <%- include("../../layout/menu") %>
 
+<section class="section">
+    <div class="container">
+      <h1 class="title">Cadastro de Produtos</h1>
+      <div class="field">
+        <label class="label">Buscar</label>
+        <div class="control">
+          <input class="input" type="text" id="busca" placeholder="Buscar por Código, Nome ou Categoria...">
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Filtrar por Estoque</label>
+        <div class="control">
+          <label class="checkbox">
+            <input type="checkbox" id="comEstoqueCheckbox" checked>
+            Com Estoque
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" id="semEstoqueCheckbox" checked>
+            Sem Estoque
+          </label>
+        </div>
+      </div>
+      <table class="table is-bordered is-fullwidth">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nome do Produto</th>
+            <th>Categoria</th>
+            <th>Quantidade</th>
+            <th>Preço</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaProdutos">
+          <!-- Aqui serão inseridos os produtos cadastrados -->
+        </tbody>
+      </table>
+      <p id="totalProdutos"></p>
+    </div>
+  </section>
 
+    <!-- Script da tela de login -->
+    <script src="/scripts/estoque.js"></script>
 
 <%- include("../../layout/footer") %>

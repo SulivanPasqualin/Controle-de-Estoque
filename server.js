@@ -71,6 +71,11 @@ servidor.get("/fluxodecaixa", function(req, res) {
     res.status(200).render('pages/fluxodecaixa/form');
 });
 
+// Rota relatórios
+servidor.get("/relatorios", function(req, res) {
+    res.status(200).render('pages/relatorios/form');
+});
+
 // Servidor escutando na porta 3000
 servidor.listen(3000, function() {
     console.log(`Servidor executando...`);

@@ -1,0 +1,89 @@
+<%- include("../../layout/header")%>
+
+<%- include("../../layout/menu") %>
+
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Relatórios</h1>
+            <form action="/gerar_relatorio" method="post"> <!-- Adicione o endpoint correto para enviar os dados -->
+                <div class="field">
+                    <label class="label">Tipo de Relatório</label>
+                    <div class="control">
+                        <label class="radio">
+                            <input type="radio" name="tipoRelatorio" value="clientes">
+                            Clientes
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="tipoRelatorio" value="compras">
+                            Compras
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="tipoRelatorio" value="desempenho">
+                            Desempenho
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="tipoRelatorio" value="despesas">
+                            Despesas
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="tipoRelatorio" value="fluxodecaixa">
+                            Fluxo de Caixa
+                        </label>
+
+                        <label class="radio">
+                            <input type="radio" name="tipoRelatorio" value="fornecedores">
+                            Fornecedores
+                        </label>
+
+                        <label class="radio">
+                            <input type="radio" name="tipoRelatorio" value="vendas">
+                            Vendas
+                        </label>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Período</label>
+                    <div class="control">
+                        <label class="radio">
+                            <input type="radio" name="periodo" value="diario">
+                            Diário
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="periodo" value="semanal">
+                            Semanal
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="periodo" value="mensal">
+                            Mensal
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="periodo" value="anual">
+                            Anual
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="periodo" value="personalizado">
+                            Personalizado
+                        </label>
+                    </div>
+                </div>
+                <div class="field is-grouped">
+                    <span class="is-small" style="margin: 0 5px;">Data Inicial:</span>
+                    <div class="control">
+                        <input class="input is-small" type="date" name="dataInicial">
+                    </div>
+                    <span class="is-small" style="margin: 0 5px;">Data Final:</span>
+                    <div class="control">
+                        <input class="input is-small" type="date" name="dataFinal">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <button class="button is-primary" type="submit">Gerar Relatório</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+<%- include("../../layout/footer") %>

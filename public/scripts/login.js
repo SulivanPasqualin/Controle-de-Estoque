@@ -5,7 +5,7 @@ function validarLogin() {
     // Validação básica de login
     if (email === 'teste@hotmail.com' && senha === '123') {
         // Redirecionar para a página /index após login bem-sucedido
-        window.location.href = '/index';
+        window.location.href = '/views/pages/index/form.ejs';
     } else {
         alert('Credenciais inválidas. Tente novamente.');
     }
