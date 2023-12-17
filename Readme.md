@@ -1,6 +1,7 @@
-# Projeto Fluxo de Caixa e Controle de Estoque
+# Sistema de Controle de Estoque e Fluxo de Caixa
+### Projeto Integrador - Instituto Federal de Santa Catarina - 2023
 
-Este projeto é uma aplicação Node.js desenvolvida para gerenciar fluxo de caixa, controle de estoque, cadastro de clientes e fornecedores, além de permitir o registro de produtos, compras, vendas e despesas da empresa.
+Este projeto é uma aplicação Node.js desenvolvida para gerenciar fluxo de caixa, controle de estoque, cadastro de clientes e fornecedores, além de permitir o registro de produtos, compras, vendas e outras despesas.
 
 ## Tecnologias Utilizadas
 
@@ -9,20 +10,21 @@ Este projeto é uma aplicação Node.js desenvolvida para gerenciar fluxo de cai
 - **EJS**: Engine de templates para geração de páginas HTML.
 - **HTML5 & CSS3**: Linguagens para estruturação e estilização das páginas.
 - **Bulma**: Framework CSS para estilização.
+- **Sequelize**: ORM para interação com o banco de dados.
 - **MySQL**: Banco de dados utilizado.
 
 ## Funcionalidades Principais
 
 ### Cadastros
-- **Clientes e Fornecedores**: Registro e gerenciamento de informações.
-- **Produtos e Estoque**: Cadastro e controle de itens em estoque.
+- **Clientes**: Registro e gerenciamento de informações.
+- **Fornecedores**: Registro e gerenciamento de informações.
+- **Produtos**: Registro e gerenciamento de informações.
 
 ### Operações
 - **Compras**: Registro de compras para atualização do estoque.
 - **Vendas**: Realização de vendas, atualizando o estoque.
-- **Fluxo de Caixa**: Integração das operações para controlar entradas, saídas e despesas da empresa.
-
-A aplicação utiliza o MySQL como banco de dados. Certifique-se de ter o MySQL instalado e configurado corretamente antes de executar a aplicação.
+- **Estoque**: Controle de itens em estoque.
+- **Fluxo de Caixa**: Integração das operações para controlar entradas, saídas e demais despesas.
 
 ## Banco de Dados
 
