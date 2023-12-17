@@ -1,5 +1,4 @@
 # Sistema de Controle de Estoque e Fluxo de Caixa
-### Projeto Integrador - Instituto Federal de Santa Catarina - 2023
 
 Este projeto é uma aplicação Node.js desenvolvida para gerenciar fluxo de caixa, controle de estoque, cadastro de clientes e fornecedores, além de permitir o registro de produtos, compras, vendas e outras despesas.
 
@@ -54,3 +53,5 @@ A aplicação utiliza o MySQL como banco de dados. Certifique-se de ter o MySQL 
 ## Autores
 - **Evandro Ferreira Martins - evandro131@gmail.com      - N/A**
 - **Sulivan Pasqualin        - sulivanpasqualin@live.com - (49) 99935-5266**
+
+### Projeto Integrador - Instituto Federal de Santa Catarina - 2023
