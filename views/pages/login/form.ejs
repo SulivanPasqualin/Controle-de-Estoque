@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
-  <title>Login e Cadastro</title>
-  <!-- Incluir o arquivo bulma.css na tag link -->
+  <title>Login</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
+
 <body>
 
   <div class="container">
     <div class="columns is-centered mt-6">
       <div class="column is-half">
+
         <!-- Tela de Login -->
         <div id="login-form">
           <h1 class="title has-text-centered">Login</h1>
@@ -32,89 +34,19 @@
                 <button class="button is-primary" onclick="validarLogin()">Entrar</button>
               </div>
               <div class="control">
-                <button class="button is-link" onclick="mostrarCadastro()">Cadastrar-se</button>
+                <a href="/cadastro" class="button is-link">Cadastrar-se</a>
               </div>
             </div>
           </form>
         </div>
 
-        <!-- Tela de Cadastro (inicialmente escondida) -->
-        <div id="cadastro-form" style="display: none;">
-          <h1 class="title has-text-centered">Cadastro</h1>
-          <form onsubmit="return validarCadastro()">
-            <div class="field">
-              <label class="label">E-mail</label>
-              <div class="control">
-                <input class="input" type="email" placeholder="Digite seu e-mail" id="cadastro-email">
-              </div>
-            </div>
-            <div class="field">
-              <label class="label">Nome Completo/Empresa</label>
-              <div class="control">
-                <input class="input" type="text" placeholder="Digite seu nome ou nome da empresa" id="cadastro-nome">
-              </div>
-            </div>
-            <div class="field">
-              <label class="label">Senha</label>
-              <div class="control">
-                <input class="input" type="password" placeholder="Digite sua senha" id="cadastro-senha">
-              </div>
-            </div>
-            <div class="field">
-              <label class="label">Confirmar Senha</label>
-              <div class="control">
-                <input class="input" type="password" placeholder="Confirme sua senha" id="cadastro-confirmar-senha">
-              </div>
-            </div>
-            <div class="field">
-              <div class="control">
-                <button class="button is-primary" type="submit">Cadastrar-se</button>
-              </div>
-            </div>
-          </form>
-        </div>
       </div>
     </div>
   </div>
 
-  <script>
-    function validarLogin() {
-      const email = document.getElementById('login-email').value;
-      const senha = document.getElementById('login-password').value;
-  
-      // Validação básica de login
-      if (email === 'teste@hotmail.com' && senha === '123') {
-        // Redirecionar para a página /index
-        window.location.href = '/index';
-      } else {
-        alert('Credenciais inválidas. Tente novamente.');
-      }
-    }
-  
-    function mostrarCadastro() {
-      document.getElementById('login-form').style.display = 'none';
-      document.getElementById('cadastro-form').style.display = 'block';
-    }
-  
-    function validarCadastro() {
-      const email = document.getElementById('cadastro-email').value;
-      const nome = document.getElementById('cadastro-nome').value;
-      const senha = document.getElementById('cadastro-senha').value;
-      const confirmarSenha = document.getElementById('cadastro-confirmar-senha').value;
-  
-      // Validação básica do formulário de cadastro
-      if (senha !== confirmarSenha) {
-        alert('As senhas não coincidem!');
-        return false;
-      }
-  
-      // Aqui você pode enviar os dados do formulário para o servidor para cadastro
-      // Por exemplo: fetch('URL de cadastro', { method: 'POST', body: JSON.stringify({ email, nome, senha }) });
-  
-      alert('Cadastro realizado com sucesso!');
-      return true;
-    }
-  </script>
+  <!-- Script da tela de login -->
+  <script src="/scripts/login.js"></script>
 
 </body>
+
 </html>

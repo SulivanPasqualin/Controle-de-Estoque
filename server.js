@@ -11,6 +11,11 @@ servidor.get("/login", function(req, res) {
     res.render('pages/login/form'); // Renderizar o arquivo EJS em vez de enviar o HTML diretamente
 });
 
+// Rota cadastro de usuário
+servidor.get("/cadastro", function(req, res) {
+    res.status(200).render('pages/login/cadastro');
+});
+
 // Rota index (home)
 servidor.get("/index", function(req, res) {
     res.status(200).render('pages/index/form')

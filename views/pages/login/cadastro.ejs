@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+    
+    <div class="container">
+        <div class="columns is-centered mt-6">
+            <div class="column is-half">
+                <h1 class="title has-text-centered">Cadastro</h1>
+                <form id="cadastro-form" action="/cadastro" method="POST">
+                    <div class="field">
+                        <label class="label">E-mail</label>
+                        <div class="control">
+                            <input class="input" type="email" placeholder="Digite seu e-mail" id="cadastro-email">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Nome/Nome Fantasia</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Digite seu nome ou nome da empresa"
+                                id="cadastro-nome">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">CPF/CNPJ</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Digite seu CPF ou CNPJ"
+                                id="cadastro-cpf-cnpj">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Senha</label>
+                        <div class="control">
+                            <input class="input" type="password" placeholder="Digite sua senha" id="cadastro-senha">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Confirmar Senha</label>
+                        <div class="control">
+                            <input class="input" type="password" placeholder="Confirme sua senha"
+                                id="cadastro-confirmar-senha">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-primary" type="submit">Cadastrar-se</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script da tela de cadastro -->
+    <script src="/scripts/cadastroLogin.js"></script>
+
+</body>
+
+</html>
