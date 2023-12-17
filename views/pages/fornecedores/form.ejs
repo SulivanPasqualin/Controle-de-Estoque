@@ -1,0 +1,108 @@
+<%- include("../../layout/header")%>
+
+<%- include("../../layout/menu") %>
+
+<section class="section">
+    <div class="container">
+      <h1 class="title">Lista de Clientes e Fornecedores</h1>
+      <div class="field">
+        <label class="label">Buscar</label>
+        <div class="control">
+          <input class="input" type="text" id="busca" placeholder="Buscar por Código, Nome, CPF ou CNPJ...">
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Filtrar por Tipo</label>
+        <div class="control">
+          <label class="checkbox">
+            <input type="checkbox" id="pessoaFisica" checked>
+            Pessoa Física
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" id="pessoaJuridica" checked>
+            Pessoa Jurídica
+          </label>
+        </div>
+      </div>
+      <table class="table is-bordered is-fullwidth">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Tipo</th>
+            <th>Nome</th>
+            <th>Documento</th>
+            <th>E-mail</th>
+            <th>Celular</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaCadastros">
+          <!-- Exemplo de dados (substitua por dados reais do back-end) -->
+          <tr>
+            <td>00001</td>
+            <td>Pessoa Física</td>
+            <td>Fulano de Tal</td>
+            <td>123.456.789-00</td>
+            <td>fulano@example.com</td>
+            <td>(00) 91234-5678</td>
+          </tr>
+          <tr>
+            <td>00002</td>
+            <td>Pessoa Jurídica</td>
+            <td>Empresa ABC</td>
+            <td>12.345.678/0001-90</td>
+            <td>contato@empresaabc.com</td>
+            <td>(00) 99876-5432</td>
+          </tr>
+          <!-- Fim do exemplo de dados -->
+        </tbody>
+      </table>
+      <p id="totalClientes"></p>
+    </div>
+  </section>
+  
+  <script>
+    const buscaInput = document.getElementById('busca');
+    const tabelaCadastros = document.getElementById('tabelaCadastros');
+    const pessoaFisicaCheckbox = document.getElementById('pessoaFisica');
+    const pessoaJuridicaCheckbox = document.getElementById('pessoaJuridica');
+    const totalClientes = document.getElementById('totalClientes');
+
+    function atualizarTotalClientes() {
+      const linhasVisiveis = Array.from(tabelaCadastros.getElementsByTagName('tr')).filter(linha => linha.style.display !== 'none');
+      totalClientes.textContent = `Total de Clientes: ${linhasVisiveis.length}`;
+    }
+
+    function filtrarRegistros() {
+      const termoBusca = buscaInput.value.toLowerCase();
+      const linhas = tabelaCadastros.getElementsByTagName('tr');
+      const filtroPessoaFisica = pessoaFisicaCheckbox.checked;
+      const filtroPessoaJuridica = pessoaJuridicaCheckbox.checked;
+      
+      Array.from(linhas).forEach(function(linha) {
+        const dados = linha.getElementsByTagName('td');
+        const tipo = dados[1].innerText.toLowerCase();
+        const texto = dados[2].innerText.toLowerCase(); // Nome ou Documento
+
+        const correspondeTermo = texto.includes(termoBusca);
+        const correspondeTipo = (filtroPessoaFisica && tipo.includes('pessoa física')) || (filtroPessoaJuridica && tipo.includes('pessoa jurídica'));
+
+        if (correspondeTermo && correspondeTipo) {
+          linha.style.display = '';
+        } else {
+          linha.style.display = 'none';
+        }
+      });
+
+      atualizarTotalClientes();
+    }
+
+    buscaInput.addEventListener('input', filtrarRegistros);
+    pessoaFisicaCheckbox.addEventListener('change', filtrarRegistros);
+    pessoaJuridicaCheckbox.addEventListener('change', filtrarRegistros);
+
+    // Atualiza o total de clientes inicialmente
+    atualizarTotalClientes();
+  </script>
+  <p id="totalClientes"></p>
+
+<%- include("../../layout/footer") %>

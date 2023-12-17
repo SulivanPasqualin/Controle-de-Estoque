@@ -1,0 +1,63 @@
+<%- include("../../layout/header")%>
+
+<%- include("../../layout/menu") %>
+
+<body>
+    <section class="section">
+      <div class="container">
+        <form>
+          <div class="field">
+            <label class="label">Tipo</label>
+            <div class="control">
+              <label class="radio">
+                <input type="radio" name="tipo" value="pessoa_fisica">
+                Pessoa Física
+              </label>
+              <label class="radio">
+                <input type="radio" name="tipo" value="pessoa_juridica">
+                Pessoa Jurídica
+              </label>
+            </div>
+          </div>
+  
+          <div class="field">
+            <label class="label" id="nomeLabel">Nome</label>
+            <div class="control">
+              <input class="input" type="text" id="nome" placeholder="Nome ou Nome Fantasia">
+            </div>
+          </div>
+  
+          <div class="field">
+            <label class="label" id="documentoLabel">CPF/CNPJ</label>
+            <div class="control">
+              <input class="input" type="text" id="documento" placeholder="CPF ou CNPJ">
+            </div>
+          </div>
+  
+          <div class="field">
+            <label class="label">E-mail</label>
+            <div class="control">
+              <input class="input" type="email" placeholder="E-mail">
+            </div>
+          </div>
+  
+          <div class="field">
+            <label class="label">Telefone</label>
+            <div class="control">
+              <input class="input" type="tel" placeholder="Telefone">
+            </div>
+          </div>
+  
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-primary" type="submit">Cadastrar</button>
+            </div>
+            <div class="control">
+              <button class="button is-link" type="reset">Limpar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+<%- include("../../layout/footer") %>
