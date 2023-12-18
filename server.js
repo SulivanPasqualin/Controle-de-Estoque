@@ -27,18 +27,18 @@ servidor.get("/clientes", function(req, res) {
 });
 
 // Rota cadastro de clientes
-servidor.get("/cadastrodeclientes", function(req, res) {
+servidor.get("/cadastrodecliente", function(req, res) {
     res.status(200).render('pages/clientes/cadastro');
 });
 
 // Rota fornecedores
 servidor.get("/fornecedores", function(req, res) {
-    res.status(200).render('pages/clientes/form');
+    res.status(200).render('pages/fornecedores/form');
 });
 
 // Rota cadastro de fornecedores
-servidor.get("/cadastrodefornecedores", function(req, res) {
-    res.status(200).render('pages/clientes/cadastro');
+servidor.get("/cadastrodefornecedor", function(req, res) {
+    res.status(200).render('pages/fornecedores/cadastro');
 });
 
 // Rota estoque
