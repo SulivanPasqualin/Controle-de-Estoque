@@ -44,3 +44,13 @@
 //         console.log(error)
 //     }
 // }
+
+function adicionarItem() {
+    // Aqui você pode adicionar a lógica para adicionar itens à compra
+    // Capturar informações do produto selecionado, quantidade e adicionar à tabela
+}
+
+function finalizarCompra() {
+    // Aqui você pode adicionar a lógica para finalizar a compra
+    // Calcular valor total e realizar procedimentos de compra
+}

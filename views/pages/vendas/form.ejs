@@ -1,6 +1,111 @@
-<%- include("../../layout/header")%>
+<!-- <%- include("../../layout/header")%> -->
 
 <%- include("../../layout/menu") %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Comprar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <!-- Adicione outros estilos ou scripts, se necessário -->
+    <style>
+        /* Estilos adicionais */
+        .table-container {
+            margin-top: 20px;
+        }
+
+        .valor-total {
+            margin-top: 20px;
+        }
+
+        .search-bar {
+            margin-bottom: 20px;
+        }
+
+        .product-search {
+            margin-bottom: 10px;
+        }
+
+        .product-image {
+            max-width: 100px;
+            max-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Realizar Venda</h1>
+            <!-- Barra de busca de produtos -->
+            <div class="columns search-bar">
+                <div class="column is-two-thirds">
+                    <div class="field">
+                        <label class="label">Buscar Produto</label>
+                        <div class="control">
+                            <input class="input product-search" type="text" id="busca" placeholder="Buscar por nome do produto...">
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="field">
+                        <label class="label">Quantidade</label>
+                        <div class="control">
+                            <input class="input" type="number" id="quantidade" min="1" value="1">
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="field">
+                        <label class="label">Adicionar à Venda</label>
+                        <div class="control">
+                            <button class="button is-primary" onclick="adicionarItem()">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tabela de Itens da Venda -->
+            <div class="table-container">
+                <table class="table is-bordered is-fullwidth">
+                    <thead>
+                        <tr>
+                            <th>Imagem</th>
+                            <th>Código</th>
+                            <th>Nome do Produto</th>
+                            <th>Quantidade</th>
+                            <th>Preço Unitário</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaItensVenda">
+                        <!-- Os itens da venda serão inseridos aqui -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- Valor Total da Venda -->
+            <p id="valorTotal" class="is-size-4 has-text-weight-bold valor-total">Valor Total: R$ 0,00</p>
+            <!-- Botão Finalizar Venda -->
+            <div class="field">
+                <div class="control">
+                    <button class="button is-success" onclick="finalizarVenda()">Finalizar Venda</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function adicionarItem() {
+            // Aqui você pode adicionar a lógica para adicionar itens à venda
+            // Capturar informações do produto selecionado, quantidade e adicionar à tabela
+        }
+
+        function finalizarVenda() {
+            // Aqui você pode adicionar a lógica para finalizar a venda
+            // Calcular valor total e realizar procedimentos de venda
+        }
+    </script>
+</body>
+</html>
 
 
 

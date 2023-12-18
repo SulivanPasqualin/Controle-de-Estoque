@@ -2,6 +2,91 @@
 
 <%- include("../../layout/menu") %>
 
+<section class="section">
+    <div class="container">
+      <h1 class="title">Cadastro de Produtos</h1>
+      <form id="formProduto">
+        <div class="field">
+          <label class="label" for="codigoProduto">Código do Produto</label>
+          <div class="control">
+            <input class="input" type="text" id="codigoProduto" value="00001" readonly>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="nomeProduto">Nome do Produto</label>
+          <div class="control">
+            <input class="input" type="text" id="nomeProduto" placeholder="Nome do Produto">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="descricaoProduto">Descrição</label>
+          <div class="control">
+            <textarea class="textarea" id="descricaoProduto" placeholder="Descrição do Produto"></textarea>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="dataValidade">Data de Validade</label>
+          <div class="control">
+            <input class="input" type="date" id="dataValidade">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="imagemProduto">Imagem</label>
+          <div class="control">
+            <input class="input" type="text" id="imagemProduto" placeholder="URL da Imagem">
+          </div>
+        </div>
+        <!-- <div class="field">
+          <label class="label" for="unidadeMedida">Unidade de Medida</label>
+          <div class="control">
+            <input class="input" type="text" id="unidadeMedida" placeholder="Unidade de Medida">
+          </div>
+        </div> -->
+        <div class="field">
+          <label class="label" for="categoriaProduto">Categoria do Produto</label>
+          <div class="control">
+            <div class="select">
+              <select id="categoriaProduto">
+                <option value="null"></option>
+                <option value="eletronicos">Eletrônicos</option>
+                <option value="vestuario">Vestuário</option>
+                <option value="alimentos">Alimentos</option>
+                <option value="decoracao">Decoração</option>
+                <!-- Adicione outras opções conforme necessário -->
+              </select>
+            </div>
+          </div>
+          <label class="label" for="categoriaProduto">Unidade de Medida</label>
+          <div class="control">
+            <div class="select">
+              <select id="unidadeMedida">
+                <option value="null"></option>
+                <option value="unidade">Unidade</option>
+                <option value="caixa">Caixa</option>
+                <option value="pacote">Pacote</option>
+                <!-- Adicione outras opções conforme necessário -->
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="precoProduto">Preço</label>
+          <div class="control">
+            <input class="input" type="number" id="precoProduto" placeholder="Preço do Produto">
+          </div>
+        </div>
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-primary" type="submit">Cadastrar</button>
+          </div>
+          <div class="control">
+            <button class="button is-danger" type="reset">Limpar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
 
+  <script src="/scripts/produtos.js"></script>
 
 <%- include("../../layout/footer") %>

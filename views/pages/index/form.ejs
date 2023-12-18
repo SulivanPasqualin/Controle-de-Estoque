@@ -1,6 +1,111 @@
-<%- include("../../layout/header")%>
+<!-- <%- include("../../layout/header")%> -->
 
 <%- include("../../layout/menu") %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Tela Inicial - Controle de Estoque e Fluxo de Caixa</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <!-- Adicione outros estilos ou scripts, se necessário -->
+    <style>
+        /* Estilos adicionais */
+        .title-section {
+            margin-bottom: 20px;
+        }
+
+        .calendar {
+            margin-top: 20px;
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .agenda {
+            margin-top: 20px;
+        }
+
+        .agenda-item {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        .notification-content {
+            padding: 10px 20px;
+        }
+
+        .notification-content ul {
+            margin-bottom: 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title is-1 has-text-centered title-section">Informações Úteis</h1>
+            
+            <div class="columns">
+                <div class="column is-one-third">
+                    <div class="notification is-warning">
+                        <h2 class="subtitle is-4">Produtos com Estoque Baixo</h2>
+                        <!-- Lista de produtos com estoque baixo -->
+                        <ul>
+                            <li><strong>Mouse Sem Fio:</strong> 5 unidades</li>
+                            <li><strong>Teclado USB:</strong> 3 unidades</li>
+                            <li><strong>Mousepad 20x20cm:</strong> 2 unidades</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="column is-one-third">
+                    <div class="notification is-danger">
+                        <h2 class="subtitle is-4">Contas a Pagar</h2>
+                        <!-- Lista de contas próximas do vencimento -->
+                        <div class="notification-content">
+                            <ul>
+                                <li><strong>15/01/2024:</strong> Água - R$ 80,00</li>
+                                <li><strong>20/01/2024:</strong> Luz - R$ 190,00</li>
+                                <li><strong>25/01/2024:</strong> Internet - R$ 90,00</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-one-third">
+                    <div class="calendar">
+                        <h2 class="subtitle is-4">Calendário de Feriados</h2>
+                        <!-- Lista de feriados -->
+                        <div class="notification-content">
+                            <ul>
+                                <li><strong>01/01/2024:</strong> Ano Novo</li>
+                                <li><strong>21/04/2024:</strong> Tiradentes</li>
+                                <li><strong>01/05/2024:</strong> Dia do Trabalho</li>
+                                <!-- Adicione mais feriados conforme necessário -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="agenda">
+                <h2 class="subtitle is-4">Agenda</h2>
+                <!-- Lista de itens na agenda -->
+                <div class="agenda-item">
+                    <p><strong>25/12/2023:</strong> Feriado de Natal</p>
+                </div>
+                <div class="agenda-item">
+                    <p><strong>30/12/2023:</strong> Reunião com Fornecedores</p>
+                </div>
+                <div class="agenda-item">
+                    <p><strong>10/01/2024:</strong> Inventário de Estoque</p>
+                </div>
+                <!-- Adicione mais eventos conforme necessário -->
+            </div>
+        </div>
+    </section>
+</body>
+</html>
 
 
 
