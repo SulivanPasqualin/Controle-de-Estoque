@@ -11,7 +11,7 @@ const UnidadeMedida = require("../models/unidadeMedida")
 const Usuario = require("../models/usuario")
 const Venda = require("../models/venda")
 
-const db = require("../config/dbconnection")
+const db = require("./dbconnection")
 
 
 // Cliente_PJ.hasMany(Venda,{onDelete:"CASCADE"})

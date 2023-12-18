@@ -1,28 +1,20 @@
-const DataTypes = require("sequelize");
-const db = require("../config/dbconnection")
+const { DataTypes } = require('sequelize');
+const { sequelize } = require('../config/dbconnections');
 
-const CategoriaProduto = db.define('categoriaproduto', {
+const CategoriaProduto = sequelize.define('CategoriaProduto', {
   id: {
     type: DataTypes.INTEGER,
+    primaryKey: true,
     autoIncrement: true,
-    primaryKey: true
   },
-  // pedidoId: {
-  //   type: DataTypes.INTEGER,
-  //   allowNull: false,
-  //   references: { model: "pedido", key: "id" },
-  //   onDelete: "CASCADE"
-  // },
-  // produtoId: {
-  //   type: DataTypes.INTEGER,
-  //   allowNull: false,
-  //   references: { model: "produto", key: "id" },
-  //   onDelete: "CASCADE"
-  //},
   nomeCategoria: {
     type: DataTypes.STRING,
-    allowNull: false
-  }
+    allowNull: false,
+  },
+}, {
+  // Opções adicionais do modelo, se necessário
+  timestamps: false,
+  freezeTableName: true,
 });
 
 (async () => {
@@ -35,4 +27,4 @@ const CategoriaProduto = db.define('categoriaproduto', {
   }
 })();
 
-module.exports = CategoriaProduto
+module.exports = CategoriaProduto;

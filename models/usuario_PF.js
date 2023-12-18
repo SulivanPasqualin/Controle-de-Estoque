@@ -1,24 +1,21 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/dbconnections');
+const Usuario = require('./usuario');
 
-const Usuario = sequelize.define('Usuario', {
+const Usuario_PF = sequelize.define('Usuario_PF', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  email: {
+  nome: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  cpf: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true,
-  },
-  senha: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  tipo_usuario: {
-    type: DataTypes.ENUM('Pessoa Física', 'Pessoa Jurídica'),
-    allowNull: false,
   },
 }, {
   // Opções adicionais do modelo, se necessário
@@ -26,9 +23,11 @@ const Usuario = sequelize.define('Usuario', {
   freezeTableName: true,
 });
 
+Usuario_PF.belongsTo(Usuario); // Relacionamento com a tabela Usuario
+
 (async () => {
     try {
-      await Usuario.sync({ force: false }); //{ force: true }
+      await Usuario_PF.sync({ force: false }); //{ force: true }
       console.log('Tabela de categoriaProduto criada com sucesso.');
   
     } catch (error) {
@@ -36,4 +35,4 @@ const Usuario = sequelize.define('Usuario', {
     }
   })();
 
-module.exports = Usuario;
+module.exports = Usuario_PF;

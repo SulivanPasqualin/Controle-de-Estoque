@@ -1,24 +1,29 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/dbconnections');
+const Venda = require('./venda');
+const Produto = require('./produto');
 
-const Usuario = sequelize.define('Usuario', {
+const Venda_Produto = sequelize.define('Venda_Produto', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  email: {
-    type: DataTypes.STRING,
+  id_venda: {
+    type: DataTypes.INTEGER,
     allowNull: false,
-    unique: true,
+    references: {
+      model: Venda,
+      key: 'id',
+    },
   },
-  senha: {
-    type: DataTypes.STRING,
+  id_produto: {
+    type: DataTypes.INTEGER,
     allowNull: false,
-  },
-  tipo_usuario: {
-    type: DataTypes.ENUM('Pessoa Física', 'Pessoa Jurídica'),
-    allowNull: false,
+    references: {
+      model: Produto,
+      key: 'id',
+    },
   },
 }, {
   // Opções adicionais do modelo, se necessário
@@ -28,7 +33,7 @@ const Usuario = sequelize.define('Usuario', {
 
 (async () => {
     try {
-      await Usuario.sync({ force: false }); //{ force: true }
+      await Venda_Produto.sync({ force: false }); //{ force: true }
       console.log('Tabela de categoriaProduto criada com sucesso.');
   
     } catch (error) {
@@ -36,4 +41,4 @@ const Usuario = sequelize.define('Usuario', {
     }
   })();
 
-module.exports = Usuario;
+module.exports = Venda_Produto;

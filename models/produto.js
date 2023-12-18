@@ -1,40 +1,44 @@
-const DataTypes = require("sequelize");
-const db = require("../config/dbconnection")
+const { DataTypes } = require('sequelize');
+const { sequelize } = require('../config/dbconnection');
 
-const Produto = db.define('produto', {
-    id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
-    },
-    nome: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    descricao: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    dataValidade: {
-        type: DataTypes.DATE,
-        allowNull: false
-    },
-    id_UnMed: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: { model: "unidadeMedida", key: "id" },
-        onDelete: "CASCADE"
-    },
-    id_CatProd: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: { model: "categoriaProduto", key: "id" },
-        onDelete: "CASCADE"
-    },
-    preco: {
-        type: DataTypes.DECIMAL(10, 2),
-        allowNull: false
-    }
+const Produto = sequelize.define('Produto', {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  nome: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  descricao: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+  dataValidade: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
+  imagem: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  id_unMed: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  id_catProd: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  preco: {
+    type: DataTypes.FLOAT,
+    allowNull: false,
+  },
+}, {
+  // Opções adicionais do modelo, se necessário
+  timestamps: false,
+  freezeTableName: true,
 });
 
 (async () => {
@@ -47,4 +51,4 @@ const Produto = db.define('produto', {
     }
 })(); 
 
-module.exports = Produto
+module.exports = Produto;

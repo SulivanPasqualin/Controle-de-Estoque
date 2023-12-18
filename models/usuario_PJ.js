@@ -1,49 +1,25 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/dbconnections');
-const { Fornecedor_PF } = require('../config/associations');
+const Usuario = require('./usuario');
 
-const FornecedorPF = sequelize.define('FornecedorPF', {
+const Usuario_PJ = sequelize.define('Usuario_PJ', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  cpf: {
+  razaoSocial: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  nomeFantasia: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  cnpj: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true,
-  },
-  nome: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  telefone: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-    validate: {
-      isEmail: true,
-    },
-  },
-  endereco: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  numEndereco: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  cidade: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  estado: {
-    type: DataTypes.STRING,
-    allowNull: false,
   },
 }, {
   // Opções adicionais do modelo, se necessário
@@ -51,9 +27,13 @@ const FornecedorPF = sequelize.define('FornecedorPF', {
   freezeTableName: true,
 });
 
+Usuario_PJ.belongsTo(Usuario); // Relacionamento com a tabela Usuario
+
+Usuario_PJ
+
 (async () => {
     try {
-      await Fornecedor_PF.sync({ force: false }); //{ force: true }
+      await Usuario_PJ.sync({ force: false }); //{ force: true }
       console.log('Tabela de categoriaProduto criada com sucesso.');
   
     } catch (error) {
@@ -61,4 +41,4 @@ const FornecedorPF = sequelize.define('FornecedorPF', {
     }
   })();
 
-module.exports = FornecedorPF;
+module.exports = Usuario_PJ;

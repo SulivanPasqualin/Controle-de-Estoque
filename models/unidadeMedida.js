@@ -1,16 +1,20 @@
-const DataTypes = require("sequelize");
-const db = require("../config/dbconnection")
+const { DataTypes } = require('sequelize');
+const { sequelize } = require('../config/dbconnections');
 
-const UnidadeMedida = db.define('unidadeMedida', {
+const UnidadeMedida = sequelize.define('UnidadeMedida', {
   id: {
     type: DataTypes.INTEGER,
+    primaryKey: true,
     autoIncrement: true,
-    primaryKey: true
   },
   nomeUnMed: {
     type: DataTypes.STRING,
-    allowNull: false
-  }
+    allowNull: false,
+  },
+}, {
+  // Opções adicionais do modelo, se necessário
+  timestamps: false,
+  freezeTableName: true,
 });
 
 (async () => {
@@ -23,4 +27,4 @@ const UnidadeMedida = db.define('unidadeMedida', {
   }
 })();
 
-module.exports = UnidadeMedida
+module.exports = UnidadeMedida;
