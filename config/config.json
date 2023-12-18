@@ -1,9 +1,0 @@
-{
-    "development": {
-      "username": "sulivan",
-      "password": "",
-      "database": "controledeestoque",
-      "host": "localhost",
-      "dialect": "mysql"
-    }
-  }

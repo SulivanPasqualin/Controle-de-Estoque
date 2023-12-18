@@ -6,57 +6,128 @@
     <meta charset="UTF-8">
     <title>Cadastro</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <style>
+        /* Estilos adicionais, se necessário */
+        .usuario-fields {
+            margin-bottom: 20px;
+            /* Margem inferior entre as divs */
+        }
+
+        .botoes-cadastro {
+            margin-top: 20px;
+            /* Espaço entre os campos e os botões */
+        }
+        .input-error {
+            border-color: red !important; /* Cor da borda em caso de erro */
+          }
+    </style>
 </head>
 
 <body>
-    
-    <div class="container">
-        <div class="columns is-centered mt-6">
-            <div class="column is-half">
-                <h1 class="title has-text-centered">Cadastro</h1>
-                <form id="cadastro-form" action="/cadastro" method="POST">
-                    <div class="field">
-                        <label class="label">E-mail</label>
-                        <div class="control">
-                            <input class="input" type="email" placeholder="Digite seu e-mail" id="cadastro-email">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Nome/Nome Fantasia</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="Digite seu nome ou nome da empresa"
-                                id="cadastro-nome">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">CPF/CNPJ</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="Digite seu CPF ou CNPJ"
-                                id="cadastro-cpf-cnpj">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Senha</label>
-                        <div class="control">
-                            <input class="input" type="password" placeholder="Digite sua senha" id="cadastro-senha">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Confirmar Senha</label>
-                        <div class="control">
-                            <input class="input" type="password" placeholder="Confirme sua senha"
-                                id="cadastro-confirmar-senha">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="control">
-                            <button class="button is-primary" type="submit">Cadastrar-se</button>
-                        </div>
-                    </div>
-                </form>
+
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Cadastro de Usuário</h1>
+
+            <div class="field">
+                <label class="label">Tipo de Usuário</label>
+                <div class="control">
+                    <label class="radio">
+                        <input type="radio" name="tipo_usuario" value="pf" checked>
+                        Pessoa Física
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="tipo_usuario" value="pj">
+                        Pessoa Jurídica
+                    </label>
+                </div>
             </div>
-        </div>
-    </div>
+
+            <!-- Campos para Pessoa Física -->
+            <div id="usuarioPFFields">
+                <div class="field">
+                    <label class="label">Nome</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Seu nome">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">CPF</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Seu CPF">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">E-mail</label>
+                    <div class="control">
+                        <input class="input" type="email" placeholder="Seu email">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Senha</label>
+                    <div class="control">
+                        <input class="input" type="password" placeholder="Sua senha">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Confirmar Senha</label>
+                    <div class="control">
+                        <input class="input" type="password" placeholder="Confirme sua senha">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campos para Pessoa Jurídica -->
+            <div id="usuarioPJFields" style="display: none;">
+                <div class="field">
+                    <label class="label">Nome Fantasia</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Seu nome fantasia">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Razão Social</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Sua razão social">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">CNPJ</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Seu CNPJ">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">E-mail</label>
+                    <div class="control">
+                        <input class="input" type="email" placeholder="Seu email">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Senha</label>
+                    <div class="control">
+                        <input class="input" type="password" placeholder="Sua senha">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Confirmar Senha</label>
+                    <div class="control">
+                        <input class="input" type="password" placeholder="Confirme sua senha">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botões de cadastro e cancelar -->
+            <div class="field is-grouped botoes-cadastro">
+                <div class="control">
+                  <button class="button is-primary" onclick="cadastrarUsuario()">Cadastrar</button>
+                </div>
+                <div class="control">
+                  <button class="button is-text" onclick="voltarParaLogin()">Cancelar</button>
+                </div>
+              </div>
+            </div>
+    </section>
 
     <!-- Script da tela de cadastro -->
     <script src="/scripts/cadastroLogin.js"></script>

@@ -29,16 +29,6 @@ const Estoque = sequelize.define('Estoque', {
 (async () => {
   try {
     await Estoque.sync({ force: false }); //{ force: true }
-    console.log('Tabela de unidadeMedida criada com sucesso.');
-
-  } catch (error) {
-    console.error('Não foi possível conectar-se ao banco de dados:', error);
-  }
-})();
-
-(async () => {
-  try {
-    await Estoque.sync({ force: false }); //{ force: true }
     console.log('Tabela de categoriaProduto criada com sucesso.');
 
   } catch (error) {
