@@ -2,6 +2,83 @@
 
 <%- include("../../layout/menu") %>
 
+<section class="section">
+    <div class="container">
+        <h1 class="title">Fluxo de Caixa</h1>
+        <div class="field">
+            <label class="label">Buscar</label>
+            <div class="control">
+                <input class="input" type="text" id="busca" placeholder="Busca por descrição, valor, tipo de movimento e categoria...">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Filtrar por Tipo</label>
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" id="entrada" checked>
+                    Entrada
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" id="saida" checked>
+                    Saída
+                </label>
+            </div>
+        </div>
+        <table class="table is-bordered is-fullwidth">
+            <thead>
+                <tr>
+                    <th>Valor</th>
+                    <th>Data</th>
+                    <th>Tipo do Movimento</th>
+                    <th>Categoria do Movimento</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaRegistros">
+                <!-- Exemplo de dados (substitua por dados reais do back-end) -->
+                <tr>
+                    <td>180,00</td>
+                    <td>2023-12-17</td>
+                    <td>Entrada</td>
+                    <td>Venda</td>
+                    <td>Colar de prata</td>
+                </tr>
+                <tr>
+                    <td>120,00</td>
+                    <td>2023-12-16</td>
+                    <td>Entrada</td>
+                    <td>Venda</td>
+                    <td>Colar de prata</td>
+                </tr>
+                <tr>
+                    <td>90,00</td>
+                    <td>2023-12-16</td>
+                    <td>Saída</td>
+                    <td>Despesas Gerais</td>
+                    <td>Internet</td>
+                </tr>
+                <tr>
+                    <td>320,00</td>
+                    <td>2023-12-16</td>
+                    <td>Saída</td>
+                    <td>Despesas Gerais</td>
+                    <td>Água e Luz</td>
+                </tr>
+                <tr>
+                    <td>2000,00</td>
+                    <td>2023-12-16</td>
+                    <td>Entrada</td>
+                    <td>Investimento</td>
+                    <td>Capital de Giro</td>
+                </tr>
+                <!-- Fim do exemplo de dados -->
+            </tbody>
+        </table>
+        <p id="totalRegistros"></p>
+        <p id="totalBalanco"></p>
+    </div>
+</section>
 
+    <script src="/scripts/fluxodecaixa.js"></script>
 
 <%- include("../../layout/footer") %>

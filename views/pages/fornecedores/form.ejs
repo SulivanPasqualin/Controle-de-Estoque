@@ -3,106 +3,152 @@
 <%- include("../../layout/menu") %>
 
 <section class="section">
-    <div class="container">
-      <h1 class="title">Lista de Clientes e Fornecedores</h1>
+  <div class="container">
+      <h1 class="title">Fluxo de Caixa</h1>
       <div class="field">
-        <label class="label">Buscar</label>
-        <div class="control">
-          <input class="input" type="text" id="busca" placeholder="Buscar por Código, Nome, CPF ou CNPJ...">
-        </div>
+          <label class="label">Buscar</label>
+          <div class="control">
+              <input class="input" type="text" id="busca" placeholder="Busca por descrição, valor, tipo de movimento e categoria...">
+          </div>
       </div>
       <div class="field">
-        <label class="label">Filtrar por Tipo</label>
-        <div class="control">
-          <label class="checkbox">
-            <input type="checkbox" id="pessoaFisica" checked>
-            Pessoa Física
-          </label>
-          <label class="checkbox">
-            <input type="checkbox" id="pessoaJuridica" checked>
-            Pessoa Jurídica
-          </label>
-        </div>
+          <label class="label">Filtrar por Tipo</label>
+          <div class="control">
+              <label class="checkbox">
+                  <input type="checkbox" id="entrada" checked>
+                  Entrada
+              </label>
+              <label class="checkbox">
+                  <input type="checkbox" id="saida" checked>
+                  Saída
+              </label>
+          </div>
       </div>
       <table class="table is-bordered is-fullwidth">
-        <thead>
-          <tr>
-            <th>Código</th>
-            <th>Tipo</th>
-            <th>Nome</th>
-            <th>Documento</th>
-            <th>E-mail</th>
-            <th>Celular</th>
-          </tr>
-        </thead>
-        <tbody id="tabelaCadastros">
-          <!-- Exemplo de dados (substitua por dados reais do back-end) -->
-          <tr>
-            <td>00001</td>
-            <td>Pessoa Física</td>
-            <td>Fulano de Tal</td>
-            <td>123.456.789-00</td>
-            <td>fulano@example.com</td>
-            <td>(00) 91234-5678</td>
-          </tr>
-          <tr>
-            <td>00002</td>
-            <td>Pessoa Jurídica</td>
-            <td>Empresa ABC</td>
-            <td>12.345.678/0001-90</td>
-            <td>contato@empresaabc.com</td>
-            <td>(00) 99876-5432</td>
-          </tr>
-          <!-- Fim do exemplo de dados -->
-        </tbody>
+          <thead>
+              <tr>
+                  <th>Valor</th>
+                  <th>Data</th>
+                  <th>Tipo do Movimento</th>
+                  <th>Categoria do Movimento</th>
+                  <th>Descrição</th>
+              </tr>
+          </thead>
+          <tbody id="tabelaRegistros">
+              <!-- Exemplo de dados (substitua por dados reais do back-end) -->
+              <tr>
+                  <td>180,00</td>
+                  <td>2023-12-17</td>
+                  <td>Entrada</td>
+                  <td>Venda</td>
+                  <td>Colar de prata</td>
+              </tr>
+              <tr>
+                  <td>120,00</td>
+                  <td>2023-12-16</td>
+                  <td>Entrada</td>
+                  <td>Venda</td>
+                  <td>Colar de prata</td>
+              </tr>
+              <tr>
+                  <td>90,00</td>
+                  <td>2023-12-16</td>
+                  <td>Saída</td>
+                  <td>Despesas Gerais</td>
+                  <td>Internet</td>
+              </tr>
+              <tr>
+                  <td>320,00</td>
+                  <td>2023-12-16</td>
+                  <td>Saída</td>
+                  <td>Despesas Gerais</td>
+                  <td>Água e Luz</td>
+              </tr>
+              <tr>
+                  <td>2000,00</td>
+                  <td>2023-12-16</td>
+                  <td>Entrada</td>
+                  <td>Investimento</td>
+                  <td>Capital de Giro</td>
+              </tr>
+              <!-- Fim do exemplo de dados -->
+          </tbody>
       </table>
-      <p id="totalClientes"></p>
-    </div>
-  </section>
-  
-  <script>
-    const buscaInput = document.getElementById('busca');
-    const tabelaCadastros = document.getElementById('tabelaCadastros');
-    const pessoaFisicaCheckbox = document.getElementById('pessoaFisica');
-    const pessoaJuridicaCheckbox = document.getElementById('pessoaJuridica');
-    const totalClientes = document.getElementById('totalClientes');
+      <p id="totalRegistros"></p>
+      <p id="totalBalanco"></p>
+  </div>
+</section>
 
-    function atualizarTotalClientes() {
-      const linhasVisiveis = Array.from(tabelaCadastros.getElementsByTagName('tr')).filter(linha => linha.style.display !== 'none');
-      totalClientes.textContent = `Total de Clientes: ${linhasVisiveis.length}`;
-    }
+<script>
+  const buscaInput = document.getElementById('busca');
+  const tabelaRegistros = document.getElementById('tabelaRegistros');
+  const entradaCheckbox = document.getElementById('entrada');
+  const saidaCheckbox = document.getElementById('saida');
+  const totalRegistros = document.getElementById('totalRegistros');
+  const totalBalanco = document.getElementById('totalBalanco');
 
-    function filtrarRegistros() {
-      const termoBusca = buscaInput.value.toLowerCase();
-      const linhas = tabelaCadastros.getElementsByTagName('tr');
-      const filtroPessoaFisica = pessoaFisicaCheckbox.checked;
-      const filtroPessoaJuridica = pessoaJuridicaCheckbox.checked;
-      
-      Array.from(linhas).forEach(function(linha) {
-        const dados = linha.getElementsByTagName('td');
-        const tipo = dados[1].innerText.toLowerCase();
-        const texto = dados[2].innerText.toLowerCase(); // Nome ou Documento
+  function atualizarTotalRegistros() {
+      const linhasVisiveis = Array.from(tabelaRegistros.getElementsByTagName('tr')).filter(linha => linha.style.display !== 'none');
+      totalRegistros.textContent = `Total de Registros: ${linhasVisiveis.length}`;
+  }
 
-        const correspondeTermo = texto.includes(termoBusca);
-        const correspondeTipo = (filtroPessoaFisica && tipo.includes('pessoa física')) || (filtroPessoaJuridica && tipo.includes('pessoa jurídica'));
+  function atualizarTotalBalanco() {
+      let totalEntradas = 0;
+      let totalSaidas = 0;
 
-        if (correspondeTermo && correspondeTipo) {
-          linha.style.display = '';
-        } else {
-          linha.style.display = 'none';
-        }
+      const linhasVisiveis = Array.from(tabelaRegistros.getElementsByTagName('tr')).filter(linha => linha.style.display !== 'none');
+
+      linhasVisiveis.forEach(function(linha) {
+          const valores = linha.getElementsByTagName('td');
+          const valor = parseFloat(valores[0].innerText);
+
+          if (valores[2].innerText === 'Entrada') {
+              totalEntradas += valor;
+          } else if (valores[2].innerText === 'Saída') {
+              totalSaidas += valor;
+          }
       });
 
-      atualizarTotalClientes();
-    }
+      totalBalanco.textContent = `Total de Entradas: R$ ${totalEntradas.toFixed(2)} | Total de Saídas: R$ ${totalSaidas.toFixed(2)} | Balanço Total: R$ ${(totalEntradas - totalSaidas).toFixed(2)}`;
+  }
 
-    buscaInput.addEventListener('input', filtrarRegistros);
-    pessoaFisicaCheckbox.addEventListener('change', filtrarRegistros);
-    pessoaJuridicaCheckbox.addEventListener('change', filtrarRegistros);
+  function filtrarRegistros() {
+      const termoBusca = buscaInput.value.toLowerCase();
+      const linhas = tabelaRegistros.getElementsByTagName('tr');
+      const filtroEntrada = entradaCheckbox.checked;
+      const filtroSaida = saidaCheckbox.checked;
 
-    // Atualiza o total de clientes inicialmente
-    atualizarTotalClientes();
-  </script>
-  <p id="totalClientes"></p>
+      Array.from(linhas).forEach(function(linha) {
+          const dados = linha.getElementsByTagName('td');
+          const tipoMovimento = dados[2].innerText.toLowerCase();
+
+          const correspondeBusca = termoBusca === '' ||
+              dados[0].innerText.toLowerCase().includes(termoBusca) ||
+              dados[1].innerText.toLowerCase().includes(termoBusca) ||
+              tipoMovimento.includes(termoBusca) ||
+              dados[3].innerText.toLowerCase().includes(termoBusca) ||
+              dados[4].innerText.toLowerCase().includes(termoBusca);
+
+          const correspondeTipo = (filtroEntrada && tipoMovimento.includes('entrada')) || (filtroSaida && tipoMovimento.includes('saída'));
+
+          if (correspondeBusca && correspondeTipo) {
+              linha.style.display = '';
+          } else {
+              linha.style.display = 'none';
+          }
+      });
+
+      atualizarTotalRegistros();
+      atualizarTotalBalanco();
+  }
+
+  buscaInput.addEventListener('input', filtrarRegistros);
+  entradaCheckbox.addEventListener('change', filtrarRegistros);
+  saidaCheckbox.addEventListener('change', filtrarRegistros);
+
+  // Atualiza o total de registros e o balanço inicialmente
+  atualizarTotalRegistros();
+  atualizarTotalBalanco();
+</script>
 
 <%- include("../../layout/footer") %>
