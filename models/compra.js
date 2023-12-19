@@ -10,13 +10,9 @@ const Compra = sequelize.define('Compra', {
     primaryKey: true,
     autoIncrement: true,
   },
-  id_produto: {
-    type: DataTypes.INTEGER,
+  valor: {
+    type: DataTypes.FLOAT,
     allowNull: false,
-    references: {
-      model: Produto, // Referência ao modelo Produto
-      key: 'id', // Chave primária na tabela Produto
-    },
   },
   cpf_fornecedor: {
     type: DataTypes.STRING,
@@ -42,7 +38,7 @@ const Compra = sequelize.define('Compra', {
 
 (async () => {
     try {
-      await Compra.sync({ force: false }); //{ force: true }
+      await Compra.sync({ force: true }); // true para forçar gerar uma tabela no banco ao iniciar (apaga dados existentes se houver), mantenha false caso já exista a tabela e deseje manter os dados
       console.log('Tabela de categoriaProduto criada com sucesso.');
   
     } catch (error) {
