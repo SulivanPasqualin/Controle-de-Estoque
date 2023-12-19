@@ -6,8 +6,8 @@ const sequelize = new Sequelize("controledeestoque", process.env.DB_USER, proces
   port: process.env.DB_PORT,
   dialect: "mysql",
   define: {
-    timestamps: false,
-    freezeTableName: true,
+    timestamps: false, // Não utilizar campos created_at e updated_at
+    freezeTableName: true, // Não acrescentar "S" nas tabelas
   },
 });
 

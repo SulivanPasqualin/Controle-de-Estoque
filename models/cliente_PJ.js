@@ -57,7 +57,7 @@ const ClientePJ = sequelize.define('ClientePJ', {
 
 (async () => {
   try {
-    await Cliente_PJ.sync({ force: false }); //{ force: true }
+    await Cliente_PJ.sync({ force: true }); // true para forçar gerar uma tabela no banco ao iniciar (apaga dados existentes se houver), mantenha false caso já exista a tabela e deseje manter os dados
     console.log('Tabela de categoriaProduto criada com sucesso.');
 
   } catch (error) {
