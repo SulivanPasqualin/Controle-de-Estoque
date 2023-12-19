@@ -30,8 +30,7 @@ Este projeto é uma aplicação Node.js desenvolvida para gerenciar fluxo de cai
 A aplicação utiliza o MySQL como banco de dados. Certifique-se de ter o MySQL instalado e configurado corretamente antes de executar a aplicação.
 
 ### Configuração do Banco de Dados
-1. Configure as credenciais do banco de dados no arquivo `config/database.js`.
-2. Importe o esquema do banco de dados executando o script SQL disponível em `scripts/esquema.sql`.
+1. Crie um banco de dados MySQL e configure as credenciais no arquivo `config/dbconnection.js`.
 
 ## Instalação e Execução    
 

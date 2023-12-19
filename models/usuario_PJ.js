@@ -27,7 +27,7 @@ const Usuario_PJ = sequelize.define('Usuario_PJ', {
   freezeTableName: true,
 });
 
-// Usuario_PJ.belongsTo(Usuario); // Relacionamento com a tabela Usuario
+Usuario_PJ.belongsTo(Usuario); // Relacionamento com a tabela Usuario
 
 (async () => {
     try {
