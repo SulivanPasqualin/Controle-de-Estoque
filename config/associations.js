@@ -17,32 +17,32 @@ const db = require("./dbconnection")
 
 // Relacionamentos das tabelas
 
-Usuario.hasOne(Usuario_PJ, { foreignKey: 'id' });
-Usuario_PJ.belongsTo(Usuario, { foreignKey: 'id' });
+Usuario.hasOne(Usuario_PJ,{onDelete:"CASCADE"});
+Usuario_PJ.belongsTo(Usuario,{foreignKey:"id"});
 
-Usuario.hasOne(Usuario_PF, { foreignKey: 'id' });
-Usuario_PF.belongsTo(Usuario, { foreignKey: 'id' });
+Usuario.hasOne(Usuario_PF,{onDelete:"CASCADE"});
+Usuario_PF.belongsTo(Usuario, { foreignKey: "id" });
 
 Cliente_PJ.hasMany(Venda,{onDelete:"CASCADE"})
-Venda.belongsTo(Cliente_PJ,{foreingKey:"id_cliente"})
+Venda.belongsTo(Cliente_PJ,{foreingKey:"id"})
 
 Cliente_PF.hasMany(Venda,{onDelete:"CASCADE"})
-Venda.belongsTo(Cliente_PF,{foreingKey:"id_cliente"})
+Venda.belongsTo(Cliente_PF,{foreingKey:"id"})
 
 Fornecedor_PJ.hasMany(Compra,{onDelete:"CASCADE"})
-Compra.belongsTo(Fornecedor_PJ,{foreingKey:"cnpj_fornecedor_pj"})
+Compra.belongsTo(Fornecedor_PJ,{foreingKey:"id"})
 
 Fornecedor_PF.hasMany(Compra,{onDelete:"CASCADE"})
-Compra.belongsTo(Fornecedor_PF,{foreingKey:"cpf_fornecedor_pf"})
+Compra.belongsTo(Fornecedor_PF,{foreingKey:"id"})
 
 CategoriaProduto.hasMany(Produto,{onDelete:"CASCADE"})
-Produto.belongsTo(CategoriaProduto,{foreingKey:"id_catProd"})
+Produto.belongsTo(CategoriaProduto,{foreingKey:"id"})
 
 UnMedProduto.hasMany(Produto,{onDelete:"CASCADE"})
-Produto.belongsTo(UnMedProduto,{foreingKey:"id_unMed"})
+Produto.belongsTo(UnMedProduto,{foreingKey:"id"})
 
 Estoque.hasMany(Produto,{onDelete:"CASCADE"})
-Produto.belongsTo(Estoque,{foreingKey:"id_estoque"})
+Produto.belongsTo(Estoque,{foreingKey:"id"})
 
 // Relacionamento entre tabelas N para N com tabela intermediária
 
