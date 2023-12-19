@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const { sequelize } = require('../config/dbconnections');
+const { sequelize } = require('../config/dbconnection');
 
 const FluxoDeCaixa = sequelize.define('FluxoDeCaixa', {
   id: {
@@ -43,8 +43,8 @@ const FluxoDeCaixa = sequelize.define('FluxoDeCaixa', {
 
 (async () => {
     try {
-      await FluxoDeCaixa.sync({ force: true }); // true para forçar gerar uma tabela no banco ao iniciar (apaga dados existentes se houver), mantenha false caso já exista a tabela e deseje manter os dados
-      console.log('Tabela de categoriaProduto criada com sucesso.');
+      await FluxoDeCaixa.sync({ force: false }); // true para forçar gerar uma tabela no banco ao iniciar (apaga dados existentes se houver), mantenha false caso já exista a tabela e deseje manter os dados
+      console.log('Tabela fluxoDeCaixa criada com sucesso.');
   
     } catch (error) {
       console.error('Não foi possível conectar-se ao banco de dados:', error);

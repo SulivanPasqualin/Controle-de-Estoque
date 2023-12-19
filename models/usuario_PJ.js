@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const { sequelize } = require('../config/dbconnections');
+const { sequelize } = require('../config/dbconnection');
 const Usuario = require('./usuario');
 
 const Usuario_PJ = sequelize.define('Usuario_PJ', {
@@ -27,14 +27,12 @@ const Usuario_PJ = sequelize.define('Usuario_PJ', {
   freezeTableName: true,
 });
 
-Usuario_PJ.belongsTo(Usuario); // Relacionamento com a tabela Usuario
-
-Usuario_PJ
+// Usuario_PJ.belongsTo(Usuario); // Relacionamento com a tabela Usuario
 
 (async () => {
     try {
-      await Usuario_PJ.sync({ force: true }); // true para forçar gerar uma tabela no banco ao iniciar (apaga dados existentes se houver), mantenha false caso já exista a tabela e deseje manter os dados
-      console.log('Tabela de categoriaProduto criada com sucesso.');
+      await Usuario_PJ.sync({ force: false }); // true para forçar gerar uma tabela no banco ao iniciar (apaga dados existentes se houver), mantenha false caso já exista a tabela e deseje manter os dados
+      console.log('Tabela usuario_PJ criada com sucesso.');
   
     } catch (error) {
       console.error('Não foi possível conectar-se ao banco de dados:', error);

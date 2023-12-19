@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const { sequelize } = require('../config/dbconnections');
+const { sequelize } = require('../config/dbconnection');
 const Produto = require('./produto');
 const Cliente = require('./cliente');
 
@@ -45,8 +45,8 @@ const Venda = sequelize.define('Venda', {
 
 (async () => {
   try {
-    await Venda.sync({ force: true }); // true para forçar gerar uma tabela no banco ao iniciar (apaga dados existentes se houver), mantenha false caso já exista a tabela e deseje manter os dados
-    console.log('Tabela de categoriaProduto criada com sucesso.');
+    await Venda.sync({ force: false }); // true para forçar gerar uma tabela no banco ao iniciar (apaga dados existentes se houver), mantenha false caso já exista a tabela e deseje manter os dados
+    console.log('Tabela venda criada com sucesso.');
 
   } catch (error) {
     console.error('Não foi possível conectar-se ao banco de dados:', error);

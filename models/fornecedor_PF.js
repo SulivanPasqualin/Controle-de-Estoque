@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const { sequelize } = require('../config/dbconnections');
+const { sequelize } = require('../config/dbconnection');
 const { Fornecedor_PF } = require('../config/associations');
 
 const FornecedorPF = sequelize.define('FornecedorPF', {
@@ -53,8 +53,8 @@ const FornecedorPF = sequelize.define('FornecedorPF', {
 
 (async () => {
     try {
-      await Fornecedor_PF.sync({ force: true }); // true para forçar gerar uma tabela no banco ao iniciar (apaga dados existentes se houver), mantenha false caso já exista a tabela e deseje manter os dados
-      console.log('Tabela de categoriaProduto criada com sucesso.');
+      await Fornecedor_PF.sync({ force: false }); // true para forçar gerar uma tabela no banco ao iniciar (apaga dados existentes se houver), mantenha false caso já exista a tabela e deseje manter os dados
+      console.log('Tabela fornecedor_PF criada com sucesso.');
   
     } catch (error) {
       console.error('Não foi possível conectar-se ao banco de dados:', error);

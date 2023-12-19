@@ -17,7 +17,7 @@ const Produto = sequelize.define('Produto', {
   },
   dataValidade: {
     type: DataTypes.DATE,
-    allowNull: false,
+    allowNull: true,
   },
   imagem: {
     type: DataTypes.STRING,
@@ -43,8 +43,8 @@ const Produto = sequelize.define('Produto', {
 
 (async () => {
     try {
-        await Produto.sync({ force: true }); // true para forçar gerar uma tabela no banco ao iniciar (apaga dados existentes se houver), mantenha false caso já exista a tabela e deseje manter os dados
-        console.log('Tabela de Produto criada com sucesso.');
+        await Produto.sync({ force: false }); // true para forçar gerar uma tabela no banco ao iniciar (apaga dados existentes se houver), mantenha false caso já exista a tabela e deseje manter os dados
+        console.log('Tabela produto criada com sucesso.');
 
     } catch (error) { 
         console.error('Não foi possível conectar-se ao banco de dados:', error);

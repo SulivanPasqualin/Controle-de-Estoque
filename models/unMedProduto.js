@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const { sequelize } = require('../config/dbconnections');
+const { sequelize } = require('../config/dbconnection');
 
 const UnMedProduto = sequelize.define('UnMedProduto', {
   id: {
@@ -19,8 +19,8 @@ const UnMedProduto = sequelize.define('UnMedProduto', {
 
 (async () => {
   try {
-    await UnMedProduto.sync({ force: true }); // true para forçar gerar uma tabela no banco ao iniciar (apaga dados existentes se houver), mantenha false caso já exista a tabela e deseje manter os dados
-    console.log('Tabela de unidadeMedida criada com sucesso.');
+    await UnMedProduto.sync({ force: false }); // true para forçar gerar uma tabela no banco ao iniciar (apaga dados existentes se houver), mantenha false caso já exista a tabela e deseje manter os dados
+    console.log('Tabela uniMedProduto criada com sucesso.');
 
   } catch (error) {
     console.error('Não foi possível conectar-se ao banco de dados:', error);

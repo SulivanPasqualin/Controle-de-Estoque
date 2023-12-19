@@ -1,9 +1,18 @@
 const Sequelize = require('sequelize');
 require('dotenv').config();
 
-const sequelize = new Sequelize("controledeestoque", process.env.DB_USER, process.env.DB_PASSWORD, {
-  host: process.env.HOST,
-  port: process.env.DB_PORT,
+// const sequelize = new Sequelize("controledeestoque", process.env.DB_USER, process.env.DB_PASSWORD, {
+//   host: process.env.HOST,
+//   port: process.env.DB_PORT,
+//   dialect: "mysql",
+//   define: {
+//     timestamps: false, // Não utilizar campos created_at e updated_at
+//     freezeTableName: true, // Não acrescentar "S" nas tabelas
+//   },
+// });
+
+const sequelize = new Sequelize("controledeestoque", "root", "", {
+  host: "localhost",
   dialect: "mysql",
   define: {
     timestamps: false, // Não utilizar campos created_at e updated_at
